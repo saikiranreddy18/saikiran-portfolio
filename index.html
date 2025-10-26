@@ -341,116 +341,31 @@
             display: none;
         }
 
-        /* Enhanced UI Elements */
-        .hero {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section-title {
-            position: relative;
-            margin-bottom: 50px;
-        }
-        
-        .section-title:after {
-            content: '';
+        /* Skip button for accessibility */
+        .skip-button {
             position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, #00ff9d, #00b8ff);
-            border-radius: 2px;
-        }
-        
-        .skill-bar {
+            top: 10px;
+            right: 10px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 100;
+            font-family: 'Poppins', sans-serif;
         }
-        
-        .skill-progress {
-            height: 10px;
-            border-radius: 10px;
-            background: linear-gradient(to right, #00ff9d, #00b8ff);
-            position: relative;
-            transition: width 1.5s ease-in-out;
-        }
-        
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
-        }
-        
-        .nav-link {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(to right, #00ff9d, #00b8ff);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(to right, #00ff9d, #00b8ff);
-            border: none;
-            border-radius: 30px;
-            padding: 12px 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 255, 157, 0.4);
-        }
-        
-        .counter-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .counter-box:hover {
-            transform: translateY(-5px);
-        }
-        
-        .glow-text {
-            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+
+        .skip-button:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     <!-- 3D Data Center Environment -->
     <div id="dataCenterContainer">
+        <button class="skip-button" onclick="skipToPortfolio()">Skip to Portfolio</button>
+        
         <div id="loadingScreen">
             <h1>INITIALIZING 3D DATA CENTER ENVIRONMENT</h1>
             <div class="loader-container">
@@ -464,6 +379,9 @@
                 <h1>DATA CENTER EXPLORER</h1>
                 <p>Navigate through the 3D data center environment to find the special portfolio server. Look for the glowing server with data streams flowing to it.</p>
                 <button class="btn" id="startButton">ENTER DATA CENTER</button>
+                <p style="margin-top: 20px; font-size: 0.9rem;">
+                    <a href="#" onclick="skipToPortfolio()" style="color: #00ff9d;">Skip directly to portfolio</a>
+                </p>
             </div>
         </div>
 
@@ -562,10 +480,719 @@
 
     <!-- Portfolio Content (Initially Hidden) -->
     <div class="portfolio-content">
-        <!-- Your portfolio content remains unchanged -->
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+            <div class="container">
+              <a class="navbar-brand" href="index.html">Sai Kiran</a>
+              <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+              </button>
+
+              <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                  <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+                  <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+                  <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Education</span></a></li>
+                  <li class="nav-item"><a href="#services-section" class="nav-link"><span>Training</span></a></li>
+                  <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
+                  <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+                  <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Cretificates</span></a></li>
+                  <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          
+          <section id="home-section" class="hero">
+              <div class="home-slider owl-carousel">
+              <div class="slider-item">
+                  <div class="overlay"></div>
+                <div class="container">
+                  <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+                      <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/IMG_SEGMENT_SEND1.png);">
+                          <div class="overlay"></div>
+                      </div>
+                      <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                          <div class="text">
+                              <span class="subheading">Hello!</span>
+                              <h1 class="mb-4 mt-3">I'm <span>T SAI KIRAN REDDY </span></h1>
+                              <h2 class="mb-4">A Full stack developer</h2>
+                              <p><a href="./Mamun.pdf" class="btn btn-primary py-3 px-3" target="_blank">Download CV</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slider-item">
+                  <div class="overlay"></div>
+                <div class="container">
+                  <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+                      <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/IMG_SEGMENT_SEND3.png);">
+                          <div class="overlay"></div>
+                      </div>
+                      <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                          <div class="text">
+                              <span class="subheading">Hello!</span>
+                              <h1 class="mb-4 mt-3">I <span>specialize in</span> BIG DATA AND ANALYTICS</h1>
+                              <p><a href="./Mamun.pdf" class="btn btn-primary py-3 px-3" target="_blank">Download CV</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+            <div class="container">
+                <div class="row d-flex">
+                    <div class="col-md-6 col-lg-5 d-flex">
+                        <div class="img-about img d-flex align-items-stretch">
+                            <div class="overlay"></div>
+                            <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/IMG_SEGMENT_SEND.png);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+                        <div class="row justify-content-start pb-3">
+                      <div class="col-md-12 heading-section ftco-animate">
+                          <h1 class="big">About</h1>
+                        <h2 class="mb-4">About Me</h2>
+                        <p>I'm a  Data Science enthusiast, passionate about building applications and uncovering insights through technology. With a strong foundation in Agentic ai,Automation,Machine learning and data analytics, I love turning ideas into real-world solutions.</p>
+                        <ul class="about-info mt-4 px-md-0 px-2">
+                            <li class="d-flex"><span>Name:</span> <span>T SAI KIRAN REDDY</span></li>
+                            <li class="d-flex"><span>Date of birth:</span> <span>August 18, 2004</span></li>
+                            <li class="d-flex"><span>LinkedIn:</span> <a href="https://www.linkedin.com/in/saikiranreddytallapu/" target="_blank">My LinkedIn Profile</a></li>
+                            <li class="d-flex"><span>Github:</span> <a href="https://github.com/saikiranreddy18"target="_blank">My Github account</a></li>
+                            <li class="d-flex"><span>Email:</span> <span>saikiranreddytallapureddy@gmail.com</span></li>
+                            <li class="d-flex"><span>Phone: </span> <span>+91 8309532183</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  <div class="counter-wrap ftco-animate d-flex mt-md-3">
+                      <div class="text">
+                          <p class="mb-4">
+                              <span class="number" data-number="5">0</span>
+                              <span>+Industrial Project complete</span>
+                          </p>
+                          <p class="mb-4">
+                              <span class="number" data-number="50">0</span>
+                              <span>+Project complete</span>
+                          </p>
+                          <p><a href="./Mamun.pdf" class="btn btn-primary py-3 px-3" target="_blank">Download CV</a></p>
+                      </div>
+                  </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+
+          <section class="ftco-section ftco-no-pb" id="resume-section">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+              <div class="col-md-10 heading-section text-center ftco-animate">
+                  <h1 class="big big-2">Education</h1>
+                <h2 class="mb-4">Education</h2>
+                <p>I am pursuing a Bachelor's Degree in Computer Science and Engineering from Lovely Professional University, with a strong focus on Software Development, Data Science, and Machine Learning.
+                    Throughout my studies, I have developed a solid technical foundation and worked on multiple real-world projects involving web development, Android applications, and AI-driven solutions.</p>
+              </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="resume-wrap ftco-animate">
+                            <span class="date">2022-Present</span>
+                            <h2>B.Tech-CSE</h2>
+                            <span class="position">Lovely Professional University</span>
+                            <p class="mt-4">I completed my B.Tech in Computer Science with a CGPA of 7.56, gaining a strong foundation in software development and data science. During my time in university, I worked on several hands-on projects that honed my programming and problem-solving skills.</p>
+                        </div>
+                        <div class="resume-wrap ftco-animate">
+                            <span class="date">2020-2022</span>
+                            <h2>Intermediate</h2>
+                            <span class="position">Sri Chaitanya Junior College</span>
+                            <p class="mt-4">I secured 94% in Intermediate, where I focused on mathematics and science, laying the groundwork for my technical skills. This period helped me develop critical thinking and analytical abilities.</p>
+                        </div>
+                        <div class="resume-wrap ftco-animate">
+                            <span class="date">2019-2020</span>
+                            <h2>Secondary</h2>
+                            <span class="position">Ishanavi High School</span>
+                            <p class="mt-4">In 10th, I achieved 100%, which provided a broad base of knowledge across various subjects. This helped me build a solid academic foundation for my future studies.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="resume-wrap ftco-animate">
+                            <img src="https://bookuradmission.com/college_banner/Lovely%20Professional%20University%20(LPU)_banner211112102119.jpg" alt="Image" class="img-fluid" style="width: 100%;">
+                        </div>
+                        
+                        <div class="resume-wrap ftco-animate">
+                            <img src="images/chai.jpg" alt="Image" class="img-fluid" style="width: 100%; height: auto;">
+                        </div>
+                        <div class="resume-wrap ftco-animate">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT42hajbNx0dtLowQVlBtddpudgYxDf8IKMY5F-TBF_JW97USgafR4TeMUfMtWhOOfM5oE&usqp=CAU" alt="Image" class="img-fluid" style="width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 text-center ftco-animate">
+                        <p><a href="./Mamun.pdf" class="btn btn-primary py-3 px-3" target="_blank">Download CV</a></p>
+                    </div>
+                </div>
+            </div>
+          </section>
+
+          <section class="ftco-section" id="services-section">
+            <div class="container">
+                <div class="row justify-content-center py-5 mt-5">
+              <div class="col-md-12 heading-section text-center ftco-animate">
+                  <h1 class="big big-2">Training</h1>
+                <h2 class="mb-4">Training</h2>
+                <p>I have undergone various training sessions that have enhanced my technical skills and knowledge in software development and data science. These experiences have equipped me with practical insights and a deeper understanding of industry practices.</p>
+              </div>
+            </div>
+                <div class="row">
+                        <div class="col-md-4 text-center d-flex ftco-animate">
+                            <a href="#" class="services-1">
+                                <span class="icon">
+                                    <i class="flaticon-analysis"></i>
+                                </span>
+                                <div class="desc">
+                                    <h3 class="mb-5">Full-Stack</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-center d-flex ftco-animate">
+                            <a href="#" class="services-1">
+                                <span class="icon">
+                                    <i class="flaticon-flasks"></i>
+                                </span>
+                                <div class="desc">
+                                    <h3 class="mb-5">Competitive Programming</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-center d-flex ftco-animate">
+                            <a href="#" class="services-1">
+                                <span class="icon">
+                                    <i class="flaticon-ideas"></i>
+                                </span>
+                                <div class="desc">
+                                    <h3 class="mb-5">Web Developer</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-4 text-center d-flex ftco-animate">
+                            <a href="#" class="services-1">
+                                <span class="icon">
+                                    <i class="flaticon-analysis"></i>
+                                </span>
+                                <div class="desc">
+                                    <h3 class="mb-5">DATA Analytics</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-center d-flex ftco-animate">
+                            <a href="#" class="services-1">
+                                <span class="icon">
+                                    <i class="flaticon-flasks"></i>
+                                </span>
+                                <div class="desc">
+                                    <h3 class="mb-5">Automation</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-center d-flex ftco-animate">
+                            <a href="#" class="services-1">
+                                <span class="icon">
+                                    <i class="flaticon-ideas"></i>
+                                </span>
+                                <div class="desc">
+                                    <h3 class="mb-5">Product Strategy</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+          </section>
+
+            
+            <section class="ftco-section" id="skills-section">
+                <div class="container">
+                    <div class="row justify-content-center pb-5">
+              <div class="col-md-12 heading-section text-center ftco-animate">
+                  <h1 class="big big-2">Skills</h1>
+                <h2 class="mb-4">My Skills</h2>
+                <p>Skilled in software development, web technologies, data science, and mobile app development with hands-on experience in tools like Python, Java, MongoDB, and Git.</p>
+              </div>
+            </div>
+                    <div class="row">
+                        <div class="col-md-6 animate-box">
+                            <div class="progress-wrap ftco-animate">
+                                <h3>Java</h3>
+                                <div class="progress">
+                                     <div class="progress-bar color-1" role="progressbar" aria-valuenow="95"
+                                      aria-valuemin="0" aria-valuemax="100" style="width:95%">
+                                    <span>95%</span>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 animate-box">
+                            <div class="progress-wrap ftco-animate">
+                                <h3>C/C++</h3>
+                                <div class="progress">
+                                     <div class="progress-bar color-2" role="progressbar" aria-valuenow="95"
+                                      aria-valuemin="0" aria-valuemax="100" style="width:95%">
+                                    <span>95%</span>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 animate-box">
+                            <div class="progress-wrap ftco-animate">
+                                <h3>Kotlin</h3>
+                                <div class="progress">
+                                     <div class="progress-bar color-3" role="progressbar" aria-valuenow="90"
+                                      aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                                    <span>90%</span>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 animate-box">
+                            <div class="progress-wrap ftco-animate">
+                                <h3>SQL</h3>
+                                <div class="progress">
+                                     <div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
+                                      aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                                    <span>90%</span>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 animate-box">
+                            <div class="progress-wrap ftco-animate">
+                                <h3>React</h3>
+                                <div class="progress">
+                                     <div class="progress-bar color-5" role="progressbar" aria-valuenow="85"
+                                      aria-valuemin="0" aria-valuemax="100" style="width:85%">
+                                    <span>85%</span>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 animate-box">
+                            <div class="progress-wrap ftco-animate">
+                                <h3>JavaScript</h3>
+                                <div class="progress">
+                                     <div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
+                                      aria-valuemin="0" aria-valuemax="100" style="width:80%">
+                                    <span>80%</span>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+          <section class="ftco-section ftco-project" id="projects-section">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+              <div class="col-md-12 heading-section text-center ftco-animate">
+                  <h1 class="big big-2">Projects</h1>
+                <h2 class="mb-4">My Projects</h2>
+                <p>I have worked on several projects that demonstrate my skills in software development, data science, and problem-solving. These projects have allowed me to apply my knowledge in real-world scenarios and further refine my technical expertise.</p>
+              </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/chatbot.jpg); background-size: contain;">
+                            <div class="overlay"></div>
+                            <div class="text text-center p-4">
+                                <h3><a href="https://github.com/saikiranreddy18" target="_blank">Chatbot Application</a></h3>
+                                <span>Kotlin, Xml</span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/microsoft.png);background-size: cover;">
+                            <div class="overlay"></div>
+                            <div class="text text-center p-4">
+                                <h3><a href="https://github.com/saikiranreddy18" target="_blank">Microsoft Clone</a></h3>
+                                <span>Java, SpringBoot, Jsp, JDBC</span>
+                            </div>
+                        </div>
+                      </div>
+
+                    <div class="col-md-8">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/netflix.jpg);">
+                            <div class="overlay"></div>
+                            <div class="text text-center p-4">
+                                <h3><a href="https://github.com/saikiranreddy18" target="_blank">Netflix Clone</a></h3>
+                                <span>Html, Css, Js</span>
+                            </div>
+                        </div>
+
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/pizza.jpg);">
+                            <div class="overlay"></div>
+                            <div class="text text-center p-4">
+                                <h3><a href="https://github.com/saikiranreddy18" target="_blank">Pizza Ordering app</a></h3>
+                                <span>Kotlin</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/database.png);">
+                                    <div class="overlay"></div>
+                                    <div class="text text-center p-4">
+                                        <h3><a href="https://github.com/saikiranreddy18" target="_blank">DBMS</a></h3>
+                                        <span>SQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/data.png);">
+                                    <div class="overlay"></div>
+                                    <div class="text text-center p-4">
+                                        <h3><a href="https://github.com/saikiranreddy18" target="_blank">Data Analysis</a></h3>
+                                        <span>Python</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+
+          <section class="ftco-section" id="blog-section">
+            <div class="container">
+              <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                  <h1 class="big big-2">Cretificates</h1>
+                  <h2 class="mb-4">My Cretificates</h2>
+                  <p>I have earned multiple certificates in various fields, showcasing my dedication to continuous learning and skill development. These certifications have strengthened my expertise in areas like software development, data science, and machine learning.</p>
+                </div>
+              </div>
+              <div class="row d-flex">
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end">
+                      <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/images.jpg'); background-size: contain;">
+                      </a>
+                      
+                    <div class="text mt-3 float-right d-block">
+                        <div class="d-flex align-items-center mb-3 meta">
+                          <p class="mb-0">
+                              <span class="mr-2">Dec' 2024</span>
+                              <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                          </p>
+                      </div>
+                      <h3 class="heading"><a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank">Android Development</a></h3>
+                      <p>Coursera</p>
+                      <p>It has enhanced my skills in building mobile applications and understanding the Android ecosystem.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end">
+                      <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/img.png'); background-size: contain;">
+                      </a>
+                      
+                    <div class="text mt-3 float-right d-block">
+                        <div class="d-flex align-items-center mb-3 meta">
+                          <p class="mb-0">
+                              <span class="mr-2">Sep' 2024</span>
+                              <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                          </p>
+                      </div>
+                      <h3 class="heading"><a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/"target="_blank">Foundation Of Data</a></h3>
+                      <p>Google</p>
+                      <p>This has deepened my understanding of data analysis and foundational data science concepts.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry">
+                      <a href="https://www.linkedin.com/in/saikiranreddy18/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/HackerRank_Icon-1000px.png'); background-size: contain;">
+                      </a>
+                      
+                    <div class="text mt-3 float-right d-block">
+                        <div class="d-flex align-items-center mb-3 meta">
+                          <p class="mb-0">
+                              <span class="mr-2">Aug' 2024</span>
+                              <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                          </p>
+                      </div>
+                      <h3 class="heading"><a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank">Software Engineer</a></h3>
+                      <p>HackerRank</p>
+                      <p>It has strengthened my coding skills and problem-solving abilities in various programming languages.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row d-flex">
+                <div class="col-md-4 d-flex ftco-animate">
+                  <div class="blog-entry justify-content-end">
+                    <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/"target="_blank" class="block-20" style="background-image: url('images/images.png'); background-size: contain;">
+                    </a>
+                    
+                  <div class="text mt-3 float-right d-block">
+                    <div class="d-flex align-items-center mb-3 meta">
+                        <p class="mb-0">
+                            <span class="mr-2">Jul' 2024</span>
+                            <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                        </p>
+                    </div>
+                    <h3 class="heading"><a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank">MongoDB and the Document Model</a></h3>
+                    <p>MongoDB</p>
+                    <p>It has enhanced my understanding of NoSQL databases and how to efficiently model and query data using MongoDB.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry justify-content-end">
+                  <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/channels4_profile.jpg'); background-size: contain;">
+                  </a>
+                  
+                <div class="text mt-3 float-right d-block">
+                  <div class="d-flex align-items-center mb-3 meta">
+                      <p class="mb-0">
+                          <span class="mr-2">Jun' 2024</span>
+                          <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                      </p>
+                  </div>
+                  <h3 class="heading"><a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank">Data Science</a></h3>
+                  <p>IBM</p>
+                  <p>It has provided me with a solid foundation in data analysis, machine learning, and data visualization techniques.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-flex ftco-animate">
+              <div class="blog-entry">
+                <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/img.png'); background-size: contain;">
+                </a>
+                
+              <div class="text mt-3 float-right d-block">
+                <div class="d-flex align-items-center mb-3 meta">
+                    <p class="mb-0">
+                        <span class="mr-2">May' 2024</span>
+                        <a href="#" class="mr-2">Admin</a>
+                        <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                    </p>
+                </div>
+                <h3 class="heading"><a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/"target="_blank">Computer Networking</a></h3>
+                <p>Google</p>
+                <p>It has deepened my understanding of networking fundamentals and how data travels across the internet.</p>
+              </div>
+            </div>
+          </div>
+            </div>
+            </div>
+          </section>
+
+          <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+            <div class="container">
+                <div class="row d-md-flex align-items-center">
+              <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                  <div class="text">
+                    <strong class="number" data-number="10">0</strong>
+                    <span>Awards</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                  <div class="text">
+                    <strong class="number" data-number="20">0</strong>
+                    <span>Thousand cash prize</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                  <div class="text">
+                    <strong class="number" data-number="20">0</strong>
+                    <span>+Hackathons</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                  <div class="text">
+                    <strong class="number" data-number="2">0</strong>
+                    <span>Published Research paper</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+
+          <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+                <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-7 ftco-animate text-center">
+                    <h2>I'm <span>Available</span> for freelancing</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5">Hire me</a></p>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+          <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-3">
+              <div class="col-md-7 heading-section text-center ftco-animate">
+                <h1 class="big big-2">Contact</h1>
+                <h2 class="mb-4">Contact Me</h2>
+                <p>I’d love to hear from you! Whether you have a question, a project idea, or just want to connect, feel free to reach out. You can contact me through the form below or connect with me on my social media profiles. I look forward to collaborating and discussing new opportunities.</p>
+              </div>
+            </div>
+
+            <div class="row d-flex contact-info mb-5">
+              <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                  <div class="align-self-stretch box p-4 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span class="icon-map-signs"></span>
+                      </div>
+                      <h3 class="mb-4">Address</h3>
+                  <p>Phagwara, Punjab - India</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                  <div class="align-self-stretch box p-4 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span class="icon-phone2"></span>
+                      </div>
+                      <h3 class="mb-4">Contact Number</h3>
+                  <p><a href="tel://1234567920">+91 8309532183</a></p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                  <div class="align-self-stretch box p-4 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span class="icon-paper-plane"></span>
+                      </div>
+                      <h3 class="mb-4">Email Address</h3>
+                  <p><a href="mailto:info@yoursite.com">saikiranreddytallapureddy@gmail.com</a></p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                  <div class="align-self-stretch box p-4 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span class="icon-globe"></span>
+                      </div>
+                      <h3 class="mb-4">Website</h3>
+                  <p><a href="https://mamun-portfolio-pi.vercel.app/" target="_blank">saikiran-portfolio</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row no-gutters block-9">
+              <div class="col-md-6 order-md-last d-flex">
+                <form action="#" class="bg-light p-4 p-md-5 contact-form">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Name">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Subject">
+                  </div>
+                  <div class="form-group">
+                    <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                  </div>
+                </form>
+              
+              </div>
+
+              <div class="col-md-6 d-flex">
+                  <div class="img" style="background-image: url(images/IMG_SEGMENT_SEND2.png); padding-top: 0px;"></div>
+              </div>
+            </div>
+            </div>
+          </section>
+            
+
+          <footer class="ftco-footer ftco-section">
+            <div class="container">
+              <div class="row mb-5">
+                <div class="col-md">
+                  <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">About</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                      <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                      <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                      <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2">Links</h2>
+                    <ul class="list-unstyled">
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md">
+                   <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Services</h2>
+                    <ul class="list-unstyled">
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business Strategy</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>
+                      <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="ftco-footer-widget mb-4">
+                      <h2 class="ftco-heading-2">Have a Questions?</h2>
+                      <div class="block-23 mb-3">
+                      <ul>
+                        <li><span class="icon icon-map-marker"></span><span class="text">Phagwara, Punjab - India</span></li>
+                        <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 8309532183</span></a></li>
+                        <li><a href="#"><span class="icon icon-envelope"></span><span class="text">saikiranreddytallapureddy@gmail.com</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+
+                 
+                </div>
+              </div>
+            </div>
+          </footer>
     </div>
 
     <script>
+        // Skip to portfolio function
+        function skipToPortfolio() {
+            document.getElementById('dataCenterContainer').style.display = 'none';
+            document.querySelector('.portfolio-content').style.display = 'block';
+            document.body.style.overflow = 'auto';
+            initializePortfolio();
+        }
+
         // Simulate loading with progress
         let progress = 0;
         const loaderBar = document.getElementById('loaderBar');
@@ -603,7 +1230,7 @@
         
         // Three.js variables
         let scene, camera, renderer, controls;
-        let portfolioServer, serverRacks = [], dataNodes = [], binaryNumbers = [];
+        let portfolioServer, serverRacks = [], dataNodes = [];
         let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
         let canJump = false, prevTime = performance.now();
         let velocity = new THREE.Vector3();
@@ -813,9 +1440,6 @@
                 dataNodes.push(stream);
             }
             
-            // Create floating binary numbers (0,1) in green
-            createBinaryNumbers();
-            
             // Add pointer lock controls
             controls = new THREE.PointerLockControls(camera, document.body);
             
@@ -846,56 +1470,6 @@
             
             // Start animation loop
             animate();
-        }
-        
-        // Create floating binary numbers (0,1) in green
-        function createBinaryNumbers() {
-            const loader = new THREE.FontLoader();
-            
-            // Create a simple sprite-based binary display
-            for (let i = 0; i < 50; i++) {
-                // Create a canvas for the text
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.width = 64;
-                canvas.height = 64;
-                
-                // Draw the binary digit (0 or 1)
-                const digit = Math.random() > 0.5 ? '1' : '0';
-                context.fillStyle = '#00ff9d';
-                context.font = 'bold 48px Arial';
-                context.textAlign = 'center';
-                context.textBaseline = 'middle';
-                context.fillText(digit, 32, 32);
-                
-                // Create texture from canvas
-                const texture = new THREE.CanvasTexture(canvas);
-                
-                // Create sprite material
-                const material = new THREE.SpriteMaterial({ 
-                    map: texture,
-                    transparent: true,
-                    color: 0x00ff9d
-                });
-                
-                // Create sprite
-                const sprite = new THREE.Sprite(material);
-                sprite.scale.set(1, 1, 1);
-                
-                // Position randomly in the data center
-                sprite.position.set(
-                    (Math.random() - 0.5) * 40,
-                    Math.random() * 5 + 1,
-                    (Math.random() - 0.5) * 40
-                );
-                
-                scene.add(sprite);
-                binaryNumbers.push({
-                    sprite: sprite,
-                    speed: Math.random() * 0.02 + 0.01,
-                    amplitude: Math.random() * 0.5 + 0.2
-                });
-            }
         }
         
         function onKeyDown(event) {
@@ -1019,12 +1593,6 @@
                 if (node.material.emissive) {
                     node.material.emissiveIntensity = 0.3 + 0.2 * Math.sin(Date.now() * 0.001 + index);
                 }
-            });
-            
-            // Animate binary numbers
-            binaryNumbers.forEach((binary, index) => {
-                binary.sprite.position.y += Math.sin(Date.now() * 0.001 + index) * binary.amplitude * 0.01;
-                binary.sprite.rotation.z += binary.speed;
             });
             
             // Pulsate the special server
