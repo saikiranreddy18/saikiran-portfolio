@@ -339,6 +339,8 @@
         /* Portfolio Styles */
         .portfolio-content {
             display: none;
+            position: relative;
+            z-index: 1;
         }
 
         /* Skip button for accessibility */
@@ -358,6 +360,288 @@
 
         .skip-button:hover {
             background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced Portfolio Styles */
+        .portfolio-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .code-line {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            color: rgba(0, 255, 157, 0.7);
+            font-size: 14px;
+            white-space: nowrap;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+            animation: floatCode 20s linear infinite;
+        }
+
+        @keyframes floatCode {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .code-tag {
+            color: #ff6b6b;
+        }
+
+        .code-attr {
+            color: #4ecdc4;
+        }
+
+        .code-string {
+            color: #ffe66d;
+        }
+
+        /* 3D Portfolio Elements */
+        .portfolio-3d-element {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-3d-element:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+        }
+
+        .nav-3d {
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .nav-3d:hover {
+            transform: translateZ(10px);
+            color: #00ff9d !important;
+        }
+
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            perspective: 1000px;
+        }
+
+        .card-3d:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-3d-inner {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .skill-bar-3d {
+            transform-style: preserve-3d;
+            transform: rotateX(15deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced Section Styling */
+        .section-title-3d {
+            transform-style: preserve-3d;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .section-title-3d::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #00ff9d, #00b8ff);
+            border-radius: 2px;
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(0, 255, 157, 0.3);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00ff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(31px, 9999px, 94px, 0);
+            }
+            5% {
+                clip: rect(73px, 9999px, 25px, 0);
+            }
+            10% {
+                clip: rect(7px, 9999px, 15px, 0);
+            }
+            15% {
+                clip: rect(39px, 9999px, 23px, 0);
+            }
+            20% {
+                clip: rect(23px, 9999px, 78px, 0);
+            }
+            25% {
+                clip: rect(12px, 9999px, 10px, 0);
+            }
+            30% {
+                clip: rect(98px, 9999px, 57px, 0);
+            }
+            35% {
+                clip: rect(42px, 9999px, 29px, 0);
+            }
+            40% {
+                clip: rect(75px, 9999px, 83px, 0);
+            }
+            45% {
+                clip: rect(15px, 9999px, 32px, 0);
+            }
+            50% {
+                clip: rect(68px, 9999px, 41px, 0);
+            }
+            55% {
+                clip: rect(19px, 9999px, 95px, 0);
+            }
+            60% {
+                clip: rect(53px, 9999px, 64px, 0);
+            }
+            65% {
+                clip: rect(87px, 9999px, 36px, 0);
+            }
+            70% {
+                clip: rect(26px, 9999px, 71px, 0);
+            }
+            75% {
+                clip: rect(61px, 9999px, 48px, 0);
+            }
+            80% {
+                clip: rect(34px, 9999px, 89px, 0);
+            }
+            85% {
+                clip: rect(79px, 9999px, 52px, 0);
+            }
+            90% {
+                clip: rect(3px, 9999px, 17px, 0);
+            }
+            95% {
+                clip: rect(47px, 9999px, 66px, 0);
+            }
+            100% {
+                clip: rect(91px, 9999px, 22px, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(65px, 9999px, 99px, 0);
+            }
+            5% {
+                clip: rect(52px, 9999px, 77px, 0);
+            }
+            10% {
+                clip: rect(28px, 9999px, 44px, 0);
+            }
+            15% {
+                clip: rect(83px, 9999px, 12px, 0);
+            }
+            20% {
+                clip: rect(37px, 9999px, 59px, 0);
+            }
+            25% {
+                clip: rect(14px, 9999px, 31px, 0);
+            }
+            30% {
+                clip: rect(71px, 9999px, 86px, 0);
+            }
+            35% {
+                clip: rect(46px, 9999px, 21px, 0);
+            }
+            40% {
+                clip: rect(93px, 9999px, 68px, 0);
+            }
+            45% {
+                clip: rect(8px, 9999px, 39px, 0);
+            }
+            50% {
+                clip: rect(62px, 9999px, 95px, 0);
+            }
+            55% {
+                clip: rect(27px, 9999px, 53px, 0);
+            }
+            60% {
+                clip: rect(74px, 9999px, 18px, 0);
+            }
+            65% {
+                clip: rect(41px, 9999px, 82px, 0);
+            }
+            70% {
+                clip: rect(16px, 9999px, 47px, 0);
+            }
+            75% {
+                clip: rect(89px, 9999px, 33px, 0);
+            }
+            80% {
+                clip: rect(55px, 9999px, 76px, 0);
+            }
+            85% {
+                clip: rect(22px, 9999px, 61px, 0);
+            }
+            90% {
+                clip: rect(97px, 9999px, 25px, 0);
+            }
+            95% {
+                clip: rect(38px, 9999px, 69px, 0);
+            }
+            100% {
+                clip: rect(84px, 9999px, 14px, 0);
+            }
         }
     </style>
 </head>
@@ -480,23 +764,29 @@
 
     <!-- Portfolio Content (Initially Hidden) -->
     <div class="portfolio-content">
+        <!-- Dynamic Code Background -->
+        <div class="portfolio-bg" id="codeBackground"></div>
+        
+        <!-- Floating Particles -->
+        <div id="particlesContainer"></div>
+        
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
             <div class="container">
-              <a class="navbar-brand" href="index.html">Sai Kiran</a>
+              <a class="navbar-brand nav-3d" href="index.html">Sai Kiran</a>
               <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
               </button>
 
               <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav nav ml-auto">
-                  <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-                  <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-                  <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Education</span></a></li>
-                  <li class="nav-item"><a href="#services-section" class="nav-link"><span>Training</span></a></li>
-                  <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-                  <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-                  <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Cretificates</span></a></li>
-                  <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+                  <li class="nav-item"><a href="#home-section" class="nav-link nav-3d"><span>Home</span></a></li>
+                  <li class="nav-item"><a href="#about-section" class="nav-link nav-3d"><span>About</span></a></li>
+                  <li class="nav-item"><a href="#resume-section" class="nav-link nav-3d"><span>Education</span></a></li>
+                  <li class="nav-item"><a href="#services-section" class="nav-link nav-3d"><span>Training</span></a></li>
+                  <li class="nav-item"><a href="#skills-section" class="nav-link nav-3d"><span>Skills</span></a></li>
+                  <li class="nav-item"><a href="#projects-section" class="nav-link nav-3d"><span>Projects</span></a></li>
+                  <li class="nav-item"><a href="#blog-section" class="nav-link nav-3d"><span>Cretificates</span></a></li>
+                  <li class="nav-item"><a href="#contact-section" class="nav-link nav-3d"><span>Contact</span></a></li>
                 </ul>
               </div>
             </div>
@@ -557,8 +847,8 @@
                         <div class="row justify-content-start pb-3">
                       <div class="col-md-12 heading-section ftco-animate">
                           <h1 class="big">About</h1>
-                        <h2 class="mb-4">About Me</h2>
-                        <p>I'm a  Data Science enthusiast, passionate about building applications and uncovering insights through technology. With a strong foundation in Agentic ai,Automation,Machine learning and data analytics, I love turning ideas into real-world solutions.</p>
+                        <h2 class="mb-4 section-title-3d">About Me</h2>
+                        <p>I'm a Data Science enthusiast, passionate about building applications and uncovering insights through technology. With a strong foundation in Agentic AI, Automation, Machine learning and data analytics, I love turning ideas into real-world solutions.</p>
                         <ul class="about-info mt-4 px-md-0 px-2">
                             <li class="d-flex"><span>Name:</span> <span>T SAI KIRAN REDDY</span></li>
                             <li class="d-flex"><span>Date of birth:</span> <span>August 18, 2004</span></li>
@@ -592,26 +882,26 @@
                 <div class="row justify-content-center pb-5">
               <div class="col-md-10 heading-section text-center ftco-animate">
                   <h1 class="big big-2">Education</h1>
-                <h2 class="mb-4">Education</h2>
+                <h2 class="mb-4 section-title-3d">Education</h2>
                 <p>I am pursuing a Bachelor's Degree in Computer Science and Engineering from Lovely Professional University, with a strong focus on Software Development, Data Science, and Machine Learning.
                     Throughout my studies, I have developed a solid technical foundation and worked on multiple real-world projects involving web development, Android applications, and AI-driven solutions.</p>
               </div>
             </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="resume-wrap ftco-animate">
+                        <div class="resume-wrap ftco-animate card-3d">
                             <span class="date">2022-Present</span>
                             <h2>B.Tech-CSE</h2>
                             <span class="position">Lovely Professional University</span>
                             <p class="mt-4">I completed my B.Tech in Computer Science with a CGPA of 7.56, gaining a strong foundation in software development and data science. During my time in university, I worked on several hands-on projects that honed my programming and problem-solving skills.</p>
                         </div>
-                        <div class="resume-wrap ftco-animate">
+                        <div class="resume-wrap ftco-animate card-3d">
                             <span class="date">2020-2022</span>
                             <h2>Intermediate</h2>
                             <span class="position">Sri Chaitanya Junior College</span>
                             <p class="mt-4">I secured 94% in Intermediate, where I focused on mathematics and science, laying the groundwork for my technical skills. This period helped me develop critical thinking and analytical abilities.</p>
                         </div>
-                        <div class="resume-wrap ftco-animate">
+                        <div class="resume-wrap ftco-animate card-3d">
                             <span class="date">2019-2020</span>
                             <h2>Secondary</h2>
                             <span class="position">Ishanavi High School</span>
@@ -620,14 +910,14 @@
                     </div>
 
                     <div class="col-md-6">
-                        <div class="resume-wrap ftco-animate">
+                        <div class="resume-wrap ftco-animate card-3d">
                             <img src="https://bookuradmission.com/college_banner/Lovely%20Professional%20University%20(LPU)_banner211112102119.jpg" alt="Image" class="img-fluid" style="width: 100%;">
                         </div>
                         
-                        <div class="resume-wrap ftco-animate">
+                        <div class="resume-wrap ftco-animate card-3d">
                             <img src="images/chai.jpg" alt="Image" class="img-fluid" style="width: 100%; height: auto;">
                         </div>
-                        <div class="resume-wrap ftco-animate">
+                        <div class="resume-wrap ftco-animate card-3d">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT42hajbNx0dtLowQVlBtddpudgYxDf8IKMY5F-TBF_JW97USgafR4TeMUfMtWhOOfM5oE&usqp=CAU" alt="Image" class="img-fluid" style="width: 100%; height: auto;">
                         </div>
                     </div>
@@ -645,13 +935,13 @@
                 <div class="row justify-content-center py-5 mt-5">
               <div class="col-md-12 heading-section text-center ftco-animate">
                   <h1 class="big big-2">Training</h1>
-                <h2 class="mb-4">Training</h2>
+                <h2 class="mb-4 section-title-3d">Training</h2>
                 <p>I have undergone various training sessions that have enhanced my technical skills and knowledge in software development and data science. These experiences have equipped me with practical insights and a deeper understanding of industry practices.</p>
               </div>
             </div>
                 <div class="row">
                         <div class="col-md-4 text-center d-flex ftco-animate">
-                            <a href="#" class="services-1">
+                            <a href="#" class="services-1 card-3d">
                                 <span class="icon">
                                     <i class="flaticon-analysis"></i>
                                 </span>
@@ -661,7 +951,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 text-center d-flex ftco-animate">
-                            <a href="#" class="services-1">
+                            <a href="#" class="services-1 card-3d">
                                 <span class="icon">
                                     <i class="flaticon-flasks"></i>
                                 </span>
@@ -671,7 +961,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 text-center d-flex ftco-animate">
-                            <a href="#" class="services-1">
+                            <a href="#" class="services-1 card-3d">
                                 <span class="icon">
                                     <i class="flaticon-ideas"></i>
                                 </span>
@@ -682,7 +972,7 @@
                         </div>
 
                         <div class="col-md-4 text-center d-flex ftco-animate">
-                            <a href="#" class="services-1">
+                            <a href="#" class="services-1 card-3d">
                                 <span class="icon">
                                     <i class="flaticon-analysis"></i>
                                 </span>
@@ -692,7 +982,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 text-center d-flex ftco-animate">
-                            <a href="#" class="services-1">
+                            <a href="#" class="services-1 card-3d">
                                 <span class="icon">
                                     <i class="flaticon-flasks"></i>
                                 </span>
@@ -702,7 +992,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 text-center d-flex ftco-animate">
-                            <a href="#" class="services-1">
+                            <a href="#" class="services-1 card-3d">
                                 <span class="icon">
                                     <i class="flaticon-ideas"></i>
                                 </span>
@@ -721,13 +1011,13 @@
                     <div class="row justify-content-center pb-5">
               <div class="col-md-12 heading-section text-center ftco-animate">
                   <h1 class="big big-2">Skills</h1>
-                <h2 class="mb-4">My Skills</h2>
+                <h2 class="mb-4 section-title-3d">My Skills</h2>
                 <p>Skilled in software development, web technologies, data science, and mobile app development with hands-on experience in tools like Python, Java, MongoDB, and Git.</p>
               </div>
             </div>
                     <div class="row">
                         <div class="col-md-6 animate-box">
-                            <div class="progress-wrap ftco-animate">
+                            <div class="progress-wrap ftco-animate skill-bar-3d">
                                 <h3>Java</h3>
                                 <div class="progress">
                                      <div class="progress-bar color-1" role="progressbar" aria-valuenow="95"
@@ -738,7 +1028,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 animate-box">
-                            <div class="progress-wrap ftco-animate">
+                            <div class="progress-wrap ftco-animate skill-bar-3d">
                                 <h3>C/C++</h3>
                                 <div class="progress">
                                      <div class="progress-bar color-2" role="progressbar" aria-valuenow="95"
@@ -749,7 +1039,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 animate-box">
-                            <div class="progress-wrap ftco-animate">
+                            <div class="progress-wrap ftco-animate skill-bar-3d">
                                 <h3>Kotlin</h3>
                                 <div class="progress">
                                      <div class="progress-bar color-3" role="progressbar" aria-valuenow="90"
@@ -760,7 +1050,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 animate-box">
-                            <div class="progress-wrap ftco-animate">
+                            <div class="progress-wrap ftco-animate skill-bar-3d">
                                 <h3>SQL</h3>
                                 <div class="progress">
                                      <div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
@@ -771,7 +1061,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 animate-box">
-                            <div class="progress-wrap ftco-animate">
+                            <div class="progress-wrap ftco-animate skill-bar-3d">
                                 <h3>React</h3>
                                 <div class="progress">
                                      <div class="progress-bar color-5" role="progressbar" aria-valuenow="85"
@@ -782,7 +1072,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 animate-box">
-                            <div class="progress-wrap ftco-animate">
+                            <div class="progress-wrap ftco-animate skill-bar-3d">
                                 <h3>JavaScript</h3>
                                 <div class="progress">
                                      <div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
@@ -801,13 +1091,13 @@
                 <div class="row justify-content-center pb-5">
               <div class="col-md-12 heading-section text-center ftco-animate">
                   <h1 class="big big-2">Projects</h1>
-                <h2 class="mb-4">My Projects</h2>
+                <h2 class="mb-4 section-title-3d">My Projects</h2>
                 <p>I have worked on several projects that demonstrate my skills in software development, data science, and problem-solving. These projects have allowed me to apply my knowledge in real-world scenarios and further refine my technical expertise.</p>
               </div>
             </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/chatbot.jpg); background-size: contain;">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center card-3d" style="background-image: url(images/chatbot.jpg); background-size: contain;">
                             <div class="overlay"></div>
                             <div class="text text-center p-4">
                                 <h3><a href="https://github.com/saikiranreddy18" target="_blank">Chatbot Application</a></h3>
@@ -816,7 +1106,7 @@
                         </div>
                       </div>
                       <div class="col-md-8">
-                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/microsoft.png);background-size: cover;">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center card-3d" style="background-image: url(images/microsoft.png);background-size: cover;">
                             <div class="overlay"></div>
                             <div class="text text-center p-4">
                                 <h3><a href="https://github.com/saikiranreddy18" target="_blank">Microsoft Clone</a></h3>
@@ -826,7 +1116,7 @@
                       </div>
 
                     <div class="col-md-8">
-                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/netflix.jpg);">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center card-3d" style="background-image: url(images/netflix.jpg);">
                             <div class="overlay"></div>
                             <div class="text text-center p-4">
                                 <h3><a href="https://github.com/saikiranreddy18" target="_blank">Netflix Clone</a></h3>
@@ -834,7 +1124,7 @@
                             </div>
                         </div>
 
-                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/pizza.jpg);">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center card-3d" style="background-image: url(images/pizza.jpg);">
                             <div class="overlay"></div>
                             <div class="text text-center p-4">
                                 <h3><a href="https://github.com/saikiranreddy18" target="_blank">Pizza Ordering app</a></h3>
@@ -845,7 +1135,7 @@
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/database.png);">
+                                <div class="project img ftco-animate d-flex justify-content-center align-items-center card-3d" style="background-image: url(images/database.png);">
                                     <div class="overlay"></div>
                                     <div class="text text-center p-4">
                                         <h3><a href="https://github.com/saikiranreddy18" target="_blank">DBMS</a></h3>
@@ -854,7 +1144,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/data.png);">
+                                <div class="project img ftco-animate d-flex justify-content-center align-items-center card-3d" style="background-image: url(images/data.png);">
                                     <div class="overlay"></div>
                                     <div class="text text-center p-4">
                                         <h3><a href="https://github.com/saikiranreddy18" target="_blank">Data Analysis</a></h3>
@@ -873,13 +1163,13 @@
               <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                   <h1 class="big big-2">Cretificates</h1>
-                  <h2 class="mb-4">My Cretificates</h2>
+                  <h2 class="mb-4 section-title-3d">My Cretificates</h2>
                   <p>I have earned multiple certificates in various fields, showcasing my dedication to continuous learning and skill development. These certifications have strengthened my expertise in areas like software development, data science, and machine learning.</p>
                 </div>
               </div>
               <div class="row d-flex">
                 <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
+                    <div class="blog-entry justify-content-end card-3d">
                       <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/images.jpg'); background-size: contain;">
                       </a>
                       
@@ -897,7 +1187,7 @@
                   </div>
                 </div>
                 <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
+                    <div class="blog-entry justify-content-end card-3d">
                       <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/img.png'); background-size: contain;">
                       </a>
                       
@@ -915,7 +1205,7 @@
                   </div>
                 </div>
                 <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry">
+                    <div class="blog-entry card-3d">
                       <a href="https://www.linkedin.com/in/saikiranreddy18/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/HackerRank_Icon-1000px.png'); background-size: contain;">
                       </a>
                       
@@ -935,7 +1225,7 @@
               </div>
               <div class="row d-flex">
                 <div class="col-md-4 d-flex ftco-animate">
-                  <div class="blog-entry justify-content-end">
+                  <div class="blog-entry justify-content-end card-3d">
                     <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/"target="_blank" class="block-20" style="background-image: url('images/images.png'); background-size: contain;">
                     </a>
                     
@@ -953,7 +1243,7 @@
                 </div>
               </div>
               <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
+                <div class="blog-entry justify-content-end card-3d">
                   <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/channels4_profile.jpg'); background-size: contain;">
                   </a>
                   
@@ -971,7 +1261,7 @@
               </div>
             </div>
             <div class="col-md-4 d-flex ftco-animate">
-              <div class="blog-entry">
+              <div class="blog-entry card-3d">
                 <a href="https://www.linkedin.com/in/saikiranreddytallapu/recent-activity/all/" target="_blank" class="block-20" style="background-image: url('images/img.png'); background-size: contain;">
                 </a>
                 
@@ -1049,14 +1339,14 @@
                 <div class="row justify-content-center mb-5 pb-3">
               <div class="col-md-7 heading-section text-center ftco-animate">
                 <h1 class="big big-2">Contact</h1>
-                <h2 class="mb-4">Contact Me</h2>
-                <p>I’d love to hear from you! Whether you have a question, a project idea, or just want to connect, feel free to reach out. You can contact me through the form below or connect with me on my social media profiles. I look forward to collaborating and discussing new opportunities.</p>
+                <h2 class="mb-4 section-title-3d">Contact Me</h2>
+                <p>I'd love to hear from you! Whether you have a question, a project idea, or just want to connect, feel free to reach out. You can contact me through the form below or connect with me on my social media profiles. I look forward to collaborating and discussing new opportunities.</p>
               </div>
             </div>
 
             <div class="row d-flex contact-info mb-5">
               <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                  <div class="align-self-stretch box p-4 text-center">
+                  <div class="align-self-stretch box p-4 text-center card-3d">
                       <div class="icon d-flex align-items-center justify-content-center">
                           <span class="icon-map-signs"></span>
                       </div>
@@ -1065,7 +1355,7 @@
                 </div>
               </div>
               <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                  <div class="align-self-stretch box p-4 text-center">
+                  <div class="align-self-stretch box p-4 text-center card-3d">
                       <div class="icon d-flex align-items-center justify-content-center">
                           <span class="icon-phone2"></span>
                       </div>
@@ -1074,7 +1364,7 @@
                 </div>
               </div>
               <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                  <div class="align-self-stretch box p-4 text-center">
+                  <div class="align-self-stretch box p-4 text-center card-3d">
                       <div class="icon d-flex align-items-center justify-content-center">
                           <span class="icon-paper-plane"></span>
                       </div>
@@ -1083,7 +1373,7 @@
                 </div>
               </div>
               <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                  <div class="align-self-stretch box p-4 text-center">
+                  <div class="align-self-stretch box p-4 text-center card-3d">
                       <div class="icon d-flex align-items-center justify-content-center">
                           <span class="icon-globe"></span>
                       </div>
@@ -1625,6 +1915,12 @@
         
         // Initialize portfolio functionality
         function initializePortfolio() {
+            // Create floating code background
+            createCodeBackground();
+            
+            // Create floating particles
+            createParticles();
+            
             // Animate skill bars on scroll
             const skillBars = document.querySelectorAll('.skill-progress');
             
@@ -1641,8 +1937,118 @@
             
             window.addEventListener('scroll', animateSkillBars);
             
-            // Initialize other portfolio functionality here
-            // (counter animations, carousels, etc.)
+            // Add 3D hover effects to cards
+            const cards = document.querySelectorAll('.card-3d');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateY = (x - centerX) / 20;
+                    const rotateX = (centerY - y) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
+            });
+            
+            // Add 3D effect to navigation
+            const navLinks = document.querySelectorAll('.nav-3d');
+            navLinks.forEach(link => {
+                link.addEventListener('mousemove', (e) => {
+                    const rect = link.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const centerX = rect.width / 2;
+                    const rotateY = (x - centerX) / 10;
+                    
+                    link.style.transform = `perspective(1000px) rotateY(${rotateY}deg) translateZ(5px)`;
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    link.style.transform = 'perspective(1000px) rotateY(0) translateZ(0)';
+                });
+            });
+        }
+        
+        // Create floating code background
+        function createCodeBackground() {
+            const codeBackground = document.getElementById('codeBackground');
+            const codeLines = [
+                '<span class="code-tag">&lt;div&gt;</span>',
+                '<span class="code-tag">&lt;script&gt;</span>',
+                '<span class="code-tag">function</span> <span class="code-attr">init</span>() {',
+                '  <span class="code-tag">const</span> <span class="code-attr">app</span> = <span class="code-tag">new</span> <span class="code-attr">App</span>();',
+                '  <span class="code-attr">app</span>.<span class="code-attr">run</span>();',
+                '}',
+                '<span class="code-tag">&lt;/script&gt;</span>',
+                '<span class="code-tag">&lt;style&gt;</span>',
+                '  <span class="code-attr">.container</span> {',
+                '    <span class="code-attr">display</span>: <span class="code-string">flex</span>;',
+                '  }',
+                '<span class="code-tag">&lt;/style&gt;</span>',
+                '<span class="code-tag">&lt;html&gt;</span>',
+                '<span class="code-tag">&lt;head&gt;</span>',
+                '<span class="code-tag">&lt;title&gt;</span>Portfolio<span class="code-tag">&lt;/title&gt;</span>',
+                '<span class="code-tag">import</span> <span class="code-attr">React</span> <span class="code-tag">from</span> <span class="code-string">"react"</span>;',
+                '<span class="code-tag">export default</span> <span class="code-tag">function</span> <span class="code-attr">App</span>() {',
+                '  <span class="code-tag">return</span> (',
+                '    <span class="code-tag">&lt;div&gt;</span>Hello World<span class="code-tag">&lt;/div&gt;</span>',
+                '  );',
+                '}',
+                '<span class="code-tag">class</span> <span class="code-attr">MainActivity</span> : <span class="code-attr">AppCompatActivity</span>() {',
+                '  <span class="code-tag">override fun</span> <span class="code-attr">onCreate</span>(savedInstanceState: Bundle?) {',
+                '    <span class="code-tag">super</span>.onCreate(savedInstanceState)',
+                '  }',
+                '}'
+            ];
+            
+            // Create multiple floating code lines
+            for (let i = 0; i < 30; i++) {
+                const codeLine = document.createElement('div');
+                codeLine.className = 'code-line';
+                codeLine.innerHTML = codeLines[Math.floor(Math.random() * codeLines.length)];
+                
+                // Random position and animation delay
+                codeLine.style.left = `${Math.random() * 100}%`;
+                codeLine.style.animationDelay = `${Math.random() * 20}s`;
+                codeLine.style.animationDuration = `${15 + Math.random() * 15}s`;
+                
+                codeBackground.appendChild(codeLine);
+            }
+        }
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particlesContainer');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size and position
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random color from tech theme
+                const colors = ['#00ff9d', '#00b8ff', '#ff6b6b', '#4ecdc4', '#ffe66d'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random animation
+                particle.style.animation = `floatCode ${15 + Math.random() * 20}s linear infinite`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
         }
     </script>
 
