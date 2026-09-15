@@ -1,6 +1,6 @@
 # Interactive Portfolio
 
-A modern, interactive portfolio website built with Next.js and deployed on Vercel for automatic updates.
+A modern, interactive portfolio website deployed on Vercel with automatic updates on every push.
 
 ## Features
 
